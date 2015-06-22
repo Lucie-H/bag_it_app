@@ -2,18 +2,20 @@
 <html>
 <head>
   <title>BagItApp</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
- 
+
 <div class="center jumbotron">
   <h1>Welcome to Bag it!</h1>
   <h2>Bag it! helps you to pack your bags.</h2>
 
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
+
+  <%= link_to "Sign up!", new_user_registration_path, class: "btn btn-lg btn-primary" %>
 
 </div>
 
