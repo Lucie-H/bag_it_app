@@ -1,2 +1,3 @@
-# bag_it_app
-A rails app to help you pack your bags
+# BAG IT APP
+
+Just a little Rails app that wants to help you pack your bags. 
