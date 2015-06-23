@@ -1,0 +1,14 @@
+<h1>Welcome <%= current_user.email %></h1>
+<%= link_to "Create new bag", new_bag_path, class: "btn btn-lg btn-primary" %>
+<h2>Your bags</h2>
+<ul class="bags">
+  <% current_user.bags.each do |bag| %>
+    <li>
+      <%= link_to bag.name, bag %> - 
+      <%= link_to "delete", bag, method: :delete, data: { confirm: "You sure?" } %>
+    </li>
+  <% end %>
+</ul>
+
+
+	

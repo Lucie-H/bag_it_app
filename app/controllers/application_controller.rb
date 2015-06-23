@@ -4,7 +4,20 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def index
-  	render 'layouts/user'
+  	render 'layouts/home'
   end
+
+  
+
+  private
+
+    # Confirms a logged-in user.
+    def logged_in_user
+      unless user_signed_in?
+        store_location
+        flash[:danger] = "Please log in."
+        redirect_to new_user_session_path
+      end
+    end
 
 end

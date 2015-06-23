@@ -1,0 +1,8 @@
+<h1>Create a new bag!</h1>
+<%= form_for(@bag) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+    <%= f.text_area :name, placeholder: "Name your bag!" %>
+  </div>
+  <%= f.submit "Post", class: "btn btn-primary" %>
+<% end %>
