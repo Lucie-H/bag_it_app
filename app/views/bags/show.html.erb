@@ -1,2 +1,18 @@
-<h1><%= @bag.name %></h1>
-<%= link_to "delete", @bag, method: :delete, data: { confirm: "You sure?" } %>
+<h1>Your bag "<%= @bag.name %>"</h1>
+	<%= link_to "Add item", new_bag_item_path(@bag), class: "btn btn-primary" %>
+	<%= link_to "Delete bag", @bag, method: :delete, data: { confirm: "You sure?" }, class: "btn btn-danger" %>
+	<h3>Items to pack:</h3>
+	  <% if @bag.items.empty? %>
+	  	<p>You currently have no items in your bag...</p>
+	  <% else %>
+			<ul class="items">
+			  <% @bag.items.each do |item| %>
+			    <li>
+			    	<%= item.quantity %>
+						<%= item.name %>
+						<%= check_box_tag :status, "1", item.status %>
+						<%= link_to "delete", bag_item_path(@bag, item), method: :delete, data: { confirm: "You sure?" } %>
+			    </li>
+		  	<% end %>
+			</ul>
+		<% end %>

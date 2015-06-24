@@ -1,0 +1,13 @@
+<h1>Add an item</h1>
+<%= form_for [@bag, @item] do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+  	<%= f.label :quantity %>
+    <%= f.number_field(:quantity, in: 1..50) %>
+  </div>
+  <div class="field">
+  	<%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <%= f.submit "Post", class: "btn btn-primary" %>
+<% end %>

@@ -4,6 +4,10 @@ Rails.application.routes.draw do
 
   root 'application#index'
 
+  resources :bags do
+  	resources :items
+  end
+
   resources :bags
 
 end
