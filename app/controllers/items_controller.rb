@@ -12,8 +12,7 @@ class ItemsController < ApplicationController
 		if @item.save
 			redirect_to bag
 		else
-			bag = Bag.find(params[:bag_id])
-			render 'items/new'
+			render 'new'
 		end
 	end
 
