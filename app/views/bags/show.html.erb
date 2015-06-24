@@ -12,7 +12,7 @@
 				    <li>
 				    	<%= item.quantity %>
 							<%= item.name %>
-							<%= check_box_tag :status, "1", item.status %>
+							<%= check_box_tag 'packed', item.id, item.status, :class => "item-check" %>
 							<%= link_to "delete", bag_item_path(@bag, item), method: :delete, data: { confirm: "You sure?" } %>
 				    </li>
 			  	<% end %>

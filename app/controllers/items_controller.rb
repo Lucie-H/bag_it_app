@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
 	before_action :logged_in_user
+	respond_to :html, :js
 
 	def new
 		@bag = Bag.find(params[:bag_id])
@@ -16,11 +17,19 @@ class ItemsController < ApplicationController
 		end
 	end
 
+	def update
+		@item = Item.find(params[:id])
+		@item.update_attributes(:status)
+	end
+
 	def destroy
 		bag = Bag.find(params[:bag_id])
 		Item.find(params[:id]).destroy
 	  redirect_to bag
 	end
+
+	#def toggle
+	#end
 
 	private 
 

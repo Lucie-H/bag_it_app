@@ -2,7 +2,7 @@
 <%= form_for(@bag) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
-    <%= f.text_area :name, placeholder: "Name your bag!" %>
+    <%= f.text_field :name, placeholder: "Name your bag!" %>
   </div>
-  <%= f.submit "Post", class: "btn btn-primary" %>
+  <%= f.submit "Post", class: "btn btn-primary btn-sm" %>
 <% end %>

@@ -1,15 +1,18 @@
 <h1>Welcome <%= current_user.email %></h1>
 <h3>What do you want to do next?</h3>
-<%= link_to "Create new bag", new_bag_path, class: "btn btn-primary" %>
+	<%= link_to "Create new bag", new_bag_path, class: "btn btn-primary" %>
 <h3>Your bags</h3>
-<ul class="bags">
-  <% current_user.bags.each do |bag| %>
-    <li>
-      <%= link_to bag.name, bag %> - 
-      <%= link_to "delete", bag, method: :delete, data: { confirm: "You sure?" } %>
-    </li>
-  <% end %>
-</ul>
-
+<% if current_user.bags.empty? %>
+	<p>You don't have any bags yet.</p>
+<% else %>
+	<ul class="bags">
+	  <% current_user.bags.each do |bag| %>
+	    <li>
+	      <%= link_to bag.name, bag %> - 
+	      <%= link_to "delete", bag, method: :delete, data: { confirm: "You sure?" } %>
+	    </li>
+	  <% end %>
+	</ul>
+<% end %>
 
 	
