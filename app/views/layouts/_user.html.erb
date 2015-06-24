@@ -1,6 +1,6 @@
 <h1>Welcome <%= current_user.email %></h1>
 <h3>What do you want to do next?</h3>
-<%= link_to "Create new bag", new_bag_path, class: "btn btn-lg btn-primary" %>
+<%= link_to "Create new bag", new_bag_path, class: "btn btn-primary" %>
 <h3>Your bags</h3>
 <ul class="bags">
   <% current_user.bags.each do |bag| %>
