@@ -3,8 +3,8 @@ class ItemsController < ApplicationController
 	respond_to :html, :js
 
 	def new
-		@bag = Bag.find(params[:bag_id])
 		@item = Item.new
+		@bag = Bag.find(params[:bag_id])
 	end
 
 	def create
@@ -17,15 +17,25 @@ class ItemsController < ApplicationController
 		end
 	end
 
+	def edit
+		@item = Item.find(params[:id])
+		@bag = Bag.find(params[:bag_id])
+	end
+
 	def update
 		@item = Item.find(params[:id])
-		@item.update_attributes(:status)
+		@bag = Bag.find(params[:bag_id])		
+		if @item.update_attributes(item_params)
+      redirect_to @bag
+    else
+    	render 'edit'
+    end
 	end
 
 	def destroy
-		bag = Bag.find(params[:bag_id])
+		@bag = Bag.find(params[:bag_id])
 		Item.find(params[:id]).destroy
-	  redirect_to bag
+	  redirect_to @bag
 	end
 
 	#def toggle

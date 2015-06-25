@@ -19,6 +19,23 @@ class BagsController < ApplicationController
 		end
 	end
 
+	def edit
+		@bag = Bag.find(params[:id])
+	end
+
+	def update
+		@bag = Bag.find(params[:id])		
+		if @bag.update_attributes(bag_params)
+      if URI(request.referer).path == edit_bag_path(@bag)
+      	redirect_to @bag 
+      else 
+      	redirect_to root_url
+      end
+    else
+    	render 'edit'
+    end
+	end
+
 	def destroy
    	Bag.find(params[:id]).destroy
 	  flash[:success] = "Bag deleted!"
