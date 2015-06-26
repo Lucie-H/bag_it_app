@@ -1,26 +1,32 @@
 <div class="row">
-  <div class="col-md-8">
+  <div class="col-md-6">
 		<h1>Welcome <%= current_user.email %></h1>
 		<h3>What do you want to do next?</h3>
 		<h4>Create custom bag</h4>
 			<%= link_to "New bag", new_bag_path, class: "btn btn-primary" %>
 		<h4>Choose from standard bags</h4>
 			<%= link_to "Weekend trip", weekend_new_bag_path, class: "btn btn-default btn-sm" %>
+			<%= link_to "Beach trip", beach_new_bag_path, class: "btn btn-default btn-sm" %>
+			<%= link_to "Ski trip", ski_new_bag_path, class: "btn btn-default btn-sm" %>
+			<%= link_to "Conference", conference_new_bag_path, class: "btn btn-default btn-sm" %>
 			<div id="standard-bags" style="display:none;"></div>
-		<h3>Your bags</h3>
-		<% if current_user.bags.empty? %>
-			<p>You don't have any bags yet.</p>
-		<% else %>
-			<ul class="bags">
-			  <% current_user.bags.each do |bag| %>
-			    <li>
-			      <%= link_to bag.name, bag %> - 
-			      <%= link_to "rename", edit_bag_path(bag), class: "btn btn-default btn-xs" %>
-			      <%= link_to "delete", bag, method: :delete, data: { confirm: "You sure?" }, class: "btn btn-default btn-xs" %>
-			    </li>
-			  <% end %>
-			</ul>
-		<% end %>
+		</div>
+		<div class="col-md-6">
+			<h3>Your bags</h3>
+			<% if current_user.bags.empty? %>
+				<p>You don't have any bags yet.</p>
+			<% else %>
+				<ul class="bags">
+				  <% current_user.bags.each do |bag| %>
+				    <li>
+				      <%= link_to bag.name, bag %> - 
+				      <%= link_to "rename", edit_bag_path(bag), class: "btn btn-default btn-xs" %>
+				      <%= link_to "delete", bag, method: :delete, data: { confirm: "You sure?" }, class: "btn btn-default btn-xs" %>
+				    </li>
+				  <% end %>
+				</ul>
+			<% end %>
+		</div>	
 	</div>
 </div>
 	

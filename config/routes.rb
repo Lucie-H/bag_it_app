@@ -16,6 +16,9 @@ Rails.application.routes.draw do
 
   resources :bags do
 		get 'weekend', on: :new
+		get 'beach', on: :new
+		get 'ski', on: :new
+		get 'conference', on: :new
 	end
 
 end

@@ -44,10 +44,57 @@ class BagsController < ApplicationController
 
 	def weekend
 		@bag = current_user.bags.build(name: "Weekend trip")
-		@item = @bag.items.build(name: "socks", quantity: "1", bag_id: @bag.id)
+		@item = @bag.items.build(name: "socks", quantity: "2", bag_id: @bag.id)
 		@item = @bag.items.build(name: "pants", quantity: "1", bag_id: @bag.id)
-		@item = @bag.items.build(name: "shirt", quantity: "1", bag_id: @bag.id)
+		@item = @bag.items.build(name: "shirts", quantity: "2", bag_id: @bag.id)
 		@item = @bag.items.build(name: "shoes", quantity: "1", bag_id: @bag.id)
+		@item = @bag.items.build(name: "sleeping bag", quantity: "1", bag_id: @bag.id)
+		@item = @bag.items.build(name: "umbrella", quantity: "1", bag_id: @bag.id)
+		if @bag.save
+			redirect_to @bag
+		else
+			flash[:danger] = "something went wrong"
+			redirect_to root_url
+		end
+	end 
+
+	def beach
+		@bag = current_user.bags.build(name: "Beach trip")
+		@item = @bag.items.build(name: "swimsuit", quantity: "1", bag_id: @bag.id)
+		@item = @bag.items.build(name: "towel", quantity: "1", bag_id: @bag.id)
+		@item = @bag.items.build(name: "flipflops", quantity: "1", bag_id: @bag.id)
+		@item = @bag.items.build(name: "sunblock", quantity: "1", bag_id: @bag.id)
+		@item = @bag.items.build(name: "book", quantity: "1", bag_id: @bag.id)
+		if @bag.save
+			redirect_to @bag
+		else
+			flash[:danger] = "something went wrong"
+			redirect_to root_url
+		end
+	end 
+
+	def ski
+		@bag = current_user.bags.build(name: "Ski trip")
+		@item = @bag.items.build(name: "ski", quantity: "1", bag_id: @bag.id)
+		@item = @bag.items.build(name: "ski suit", quantity: "1", bag_id: @bag.id)
+		@item = @bag.items.build(name: "sunglasses", quantity: "1", bag_id: @bag.id)
+		@item = @bag.items.build(name: "sunblock", quantity: "1", bag_id: @bag.id)
+		@item = @bag.items.build(name: "helmet", quantity: "1", bag_id: @bag.id)
+		if @bag.save
+			redirect_to @bag
+		else
+			flash[:danger] = "something went wrong"
+			redirect_to root_url
+		end
+	end 
+
+	def conference
+		@bag = current_user.bags.build(name: "Conference")
+		@item = @bag.items.build(name: "laptop", quantity: "1", bag_id: @bag.id)
+		@item = @bag.items.build(name: "laptop charger", quantity: "1", bag_id: @bag.id)
+		@item = @bag.items.build(name: "sticker", quantity: "10", bag_id: @bag.id)
+		@item = @bag.items.build(name: "USB stick", quantity: "1", bag_id: @bag.id)
+		@item = @bag.items.build(name: "Club Mate", quantity: "1", bag_id: @bag.id)
 		if @bag.save
 			redirect_to @bag
 		else
