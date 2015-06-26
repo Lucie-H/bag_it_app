@@ -42,10 +42,8 @@ class ItemsController < ApplicationController
 	def toggle_status 
 		@item = Item.find(params[:id])
 		@item.toggle!(:status)
-		#render :nothing => true
 		respond_to do |format|
-	    format.html
-	    format.json
+	    format.json {render json: @item}
   	end
 	end
 

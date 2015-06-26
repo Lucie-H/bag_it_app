@@ -11,10 +11,10 @@
 			    <li>
 			    	<%= item.quantity %>
 						<%= item.name %>
-						<% if item.status==true %>
-							<span>packed!</span>
+						<% if item.status == true %>
+							<span id="packed-<%= item.id %>">packed!</span>
 						<% else %>
-							<span>not packed</span>
+							<span id="packed-<%= item.id %>">not packed</span>
 						<% end %>
 						<%= link_to packed_link_text(item), toggle_status_item_path(item), :remote => true, class: "pack-check" %> 
 						<%= link_to "edit", edit_bag_item_path(@bag, item), class: "btn btn-default btn-xs" %>
