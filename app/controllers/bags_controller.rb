@@ -42,6 +42,19 @@ class BagsController < ApplicationController
 	  redirect_to root_url
 	end
 
+	def weekend
+		@bag = current_user.bags.build(name: "Weekend trip")
+		@item = @bag.items.build(name: "socks", quantity: "1", bag_id: @bag.id)
+		@item = @bag.items.build(name: "pants", quantity: "1", bag_id: @bag.id)
+		@item = @bag.items.build(name: "shirt", quantity: "1", bag_id: @bag.id)
+		@item = @bag.items.build(name: "shoes", quantity: "1", bag_id: @bag.id)
+		if @bag.save
+			redirect_to @bag
+		else
+			flash[:danger] = "something went wrong"
+			redirect_to root_url
+		end
+	end 
 
 	private 
 

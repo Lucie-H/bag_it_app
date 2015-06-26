@@ -1,13 +1,12 @@
-<h1>Add an item</h1>
-
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
+  <div class="col-md-8">
+    <h1>Add an item</h1>
     <%= form_for [@bag, @item], url: bag_items_path do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
 
       <div class="field">
       	<%= f.label "How many?" %><br />
-        <%= f.number_field(:quantity, in: 1..50) %>
+        <%= f.number_field(:quantity, in: 1..50, :value => 1) %>
       </div>
       
       <div class="field">

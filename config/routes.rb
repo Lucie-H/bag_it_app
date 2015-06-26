@@ -10,4 +10,12 @@ Rails.application.routes.draw do
 
   resources :bags
 
+  resources :items do
+  	get 'toggle_status', :on => :member
+  end
+
+  resources :bags do
+		get 'weekend', on: :new
+	end
+
 end

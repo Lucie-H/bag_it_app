@@ -26,6 +26,7 @@ class ItemsController < ApplicationController
 		@item = Item.find(params[:id])
 		@bag = Bag.find(params[:bag_id])		
 		if @item.update_attributes(item_params)
+			@item.update_attributes(status: false)
       redirect_to @bag
     else
     	render 'edit'
@@ -38,8 +39,15 @@ class ItemsController < ApplicationController
 	  redirect_to @bag
 	end
 
-	#def toggle
-	#end
+	def toggle_status 
+		@item = Item.find(params[:id])
+		@item.toggle!(:status)
+		#render :nothing => true
+		respond_to do |format|
+	    format.html
+	    format.json
+  	end
+	end
 
 	private 
 
