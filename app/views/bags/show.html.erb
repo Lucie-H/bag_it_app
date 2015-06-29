@@ -1,28 +1,31 @@
 <div class="row">
 	<div class="col-md-8">
-		<h1>Your bag "<%= @bag.name %>" <%= link_to "rename", edit_bag_path(@bag), class: "btn btn-default btn-xs" %></h1>
-		<%= link_to "Add item", new_bag_item_path(@bag), class: "btn btn-primary" %>
-		<h3>Items to pack:</h3>
-	  <% if @bag.items.empty? %>
-	  	<p>You currently have no items in your bag...</p>
-	  <% else %>
-			<ul class="items">
-			  <% @bag.items.each do |item| %>
-			    <li>
-			    	<%= link_to image_tag(packed_link_img(item), id: "pack_img_#{item.id}"), toggle_status_item_path(item), :remote => true, class: "pack-check" %>
-			    	<%= item.quantity %>
-						<%= item.name %>
-						<% if item.status == true %>
-							<span id="packed_<%= item.id %>">packed!</span>
-						<% else %>
-							<span id="packed_<%= item.id %>">not packed</span>
-						<% end %>
-						<%= link_to "edit", edit_bag_item_path(@bag, item), class: "btn btn-default btn-xs" %>
-						<%= link_to "delete", bag_item_path(@bag, item), method: :delete, data: { confirm: "You sure?" }, class: "btn btn-default btn-xs" %>
-			    </li>
-		  	<% end %>
-			</ul>
-		<% end %>
+		<h1>Your bag <span class="bags label label-info"><%= @bag.name %></span></h1>
+		<%= link_to "change bag name", edit_bag_path(@bag), class: "btn btn-default btn-xs" %>
+		<div class="items list">
+			<h3>Items to pack</h3>
+		  <% if @bag.items.empty? %>
+		  	<p>You currently have no items in your bag...</p>
+		  <% else %>
+				<ul>
+				  <% @bag.items.each do |item| %>
+				    <li>
+				    	<%= link_to image_tag(packed_link_img(item), id: "pack_img_#{item.id}"), toggle_status_item_path(item), :remote => true, class: "pack-check" %>
+				    	<%= item.quantity %>
+							<%= item.name %>
+							<% if item.status == true %>
+								<span id="packed_<%= item.id %>" class="text-primary">packed!</span>
+							<% else %>
+								<span id="packed_<%= item.id %>" class="text-danger">not packed</span>
+							<% end %>
+							<%= link_to "edit", edit_bag_item_path(@bag, item), class: "btn btn-default btn-xs" %>
+							<%= link_to "delete", bag_item_path(@bag, item), method: :delete, data: { confirm: "You sure?" }, class: "btn btn-default btn-xs" %>
+				    </li>
+			  	<% end %>
+				</ul>
+			<% end %>
+			<%= link_to "Add item", new_bag_item_path(@bag), class: "btn btn-primary" %>
+		</div>
 	</div>
 	<div class="col-md-4">
 		<p><em>Don't need this bag anymore?</em></p>
