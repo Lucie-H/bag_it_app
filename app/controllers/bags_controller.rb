@@ -103,6 +103,19 @@ class BagsController < ApplicationController
 		end
 	end 
 
+	def reset 
+		@bag = Bag.find(params[:id])
+		@bag.items.each do |item|
+			item.update_attributes(status: false)	
+		end
+		if @bag.save
+			redirect_to @bag
+		else
+			flash[:danger] = "something went wrong"
+			redirect_to @bag
+		end
+	end 
+
 	private 
 
 		def bag_params

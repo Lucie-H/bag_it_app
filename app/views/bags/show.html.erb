@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="col-md-8">
-		<h1>Your bag <span class="bags label label-info"><%= @bag.name %></span></h1>
+		<h1>Your bag <span class="label label-info"><%= @bag.name %></span></h1>
 		<%= link_to "change bag name", edit_bag_path(@bag), class: "btn btn-default btn-xs" %>
 		<div class="items list">
 			<h3>Items to pack</h3>
@@ -29,6 +29,7 @@
 	</div>
 	<div class="col-md-4">
 		<p><em>Don't need this bag anymore?</em></p>
+		<%= link_to "Reset bag", reset_bag_path(@bag), data: { confirm: "You sure?" }, class: "btn btn-info btn-sm" %>
 		<%= link_to "Delete bag", @bag, method: :delete, data: { confirm: "You sure?" }, class: "btn btn-danger btn-sm" %>
 	</div>
 </div>

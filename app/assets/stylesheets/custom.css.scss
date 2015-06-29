@@ -7,6 +7,10 @@ body {
 	/*padding-top: 80px;*/
 }
 
+.label {
+	text-transform: capitalize;
+}
+
 /* header */
 
 header {
@@ -72,11 +76,11 @@ header {
 	text-transform: capitalize;
 	}
 	a {
-		color: #000;
+		color: #777777;
 	}
 	a:hover {
 		text-decoration: none;
-		color: #fffeee;
+		color: #000;
 	}
 }
 
