@@ -16,7 +16,8 @@
 						<% else %>
 							<span id="packed-<%= item.id %>">not packed</span>
 						<% end %>
-						<%= link_to packed_link_text(item), toggle_status_item_path(item), :remote => true, class: "pack-check" %> 
+						<strong> - </strong>
+						<%= link_to packed_link_text(item), toggle_status_item_path(item), :remote => true, id: "pack-check", class: "btn-unpacked" %>
 						<%= link_to "edit", edit_bag_item_path(@bag, item), class: "btn btn-default btn-xs" %>
 						<%= link_to "delete", bag_item_path(@bag, item), method: :delete, data: { confirm: "You sure?" }, class: "btn btn-default btn-xs" %>
 			    </li>

@@ -1,5 +1,5 @@
 $(document).ready(function(){	
-	$('.pack-check').on('ajax:success', function(event, xhr, settings){
+	$('#pack-check').on('ajax:success', function(event, xhr, settings){
 		var itemMarker = "#packed-" + xhr.id;
 		if(xhr.status === true){
 			$(this).html("done");
