@@ -1,14 +1,13 @@
 $(document).ready(function(){	
-	$('#pack-check').on('ajax:success', function(event, xhr, settings){
-		var itemMarker = "#packed-" + xhr.id;
+	$('.pack-check').on('ajax:success', function(event, xhr, settings){
+		var itemId = "#packed_" + xhr.id;
+		var imgId = "#pack_img_" + xhr.id;
 		if(xhr.status === true){
-			$(this).html("done");
-			$(itemMarker).html("packed!");
-			console.log(itemMarker);
+			$(imgId).attr("src", "/assets/button_packed.png");
+			$(itemId).html("packed!");
 		}else{
-			$(this).html("got it?");
-			$(itemMarker).html("not packed");
-			console.log(itemMarker);
+			$(imgId).attr("src", "/assets/button_unpacked.png");
+			$(itemId).html("not packed");
 		}
 	});
 });

@@ -7,12 +7,11 @@ body {
 	padding-top: 80px;
 }
 
-.btn-unpacked {
-	background: url("images/button_unpacked.png");
-	height: 35px;
-	width: 35px; 
+.pack_img {
+	margin-left: 10px;
 }
 
-.btn-packed {
-	background: url("images/button_packed.png");	
+.items {
+	list-style: none;
+	padding-left: 0; 
 }

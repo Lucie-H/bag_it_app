@@ -1,7 +1,7 @@
 module ItemsHelper
 
-	def packed_link_text(to_pack)
-		to_pack.status? ? 'done' : 'got it?'
+	def packed_link_img(to_pack)
+		to_pack.status? ? 'button_packed.png' : 'button_unpacked.png'
 	end
 
 end

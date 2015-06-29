@@ -9,15 +9,14 @@
 			<ul class="items">
 			  <% @bag.items.each do |item| %>
 			    <li>
+			    	<%= link_to image_tag(packed_link_img(item), id: "pack_img_#{item.id}"), toggle_status_item_path(item), :remote => true, class: "pack-check" %>
 			    	<%= item.quantity %>
 						<%= item.name %>
 						<% if item.status == true %>
-							<span id="packed-<%= item.id %>">packed!</span>
+							<span id="packed_<%= item.id %>">packed!</span>
 						<% else %>
-							<span id="packed-<%= item.id %>">not packed</span>
+							<span id="packed_<%= item.id %>">not packed</span>
 						<% end %>
-						<strong> - </strong>
-						<%= link_to packed_link_text(item), toggle_status_item_path(item), :remote => true, id: "pack-check", class: "btn-unpacked" %>
 						<%= link_to "edit", edit_bag_item_path(@bag, item), class: "btn btn-default btn-xs" %>
 						<%= link_to "delete", bag_item_path(@bag, item), method: :delete, data: { confirm: "You sure?" }, class: "btn btn-default btn-xs" %>
 			    </li>
