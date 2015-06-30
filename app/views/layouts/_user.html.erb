@@ -9,7 +9,6 @@
 			<%= link_to "Beach trip", beach_new_bag_path, class: "btn btn-info" %>
 			<%= link_to "Ski trip", ski_new_bag_path, class: "btn btn-info" %>
 			<%= link_to "Conference", conference_new_bag_path, class: "btn btn-info" %>
-			<div id="standard-bags" style="display:none;"></div>
 		</div>
 		<div class="col-md-6">
 			<div class="bags list">
@@ -22,6 +21,7 @@
 					    <li>
 					      <%= link_to bag.name, bag %>
 					      <%= link_to "rename", edit_bag_path(bag), class: "btn btn-default btn-xs" %>
+					      <%= link_to "duplicate", duplicate_bag_path(bag), class: "btn btn-default btn-xs" %>
 					      <%= link_to "delete", bag, method: :delete, data: { confirm: "You sure?" }, class: "btn btn-default btn-xs" %>
 					    </li>
 					  <% end %>

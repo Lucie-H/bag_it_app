@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   root 'application#index'
 
   resources :bags do
-  	resources :items
+  	resources :items do
+      get 'shampoo', on: :new
+      get 'new_select', on: :new
+    end
   end
 
   resources :bags
@@ -15,11 +18,12 @@ Rails.application.routes.draw do
   end
 
   resources :bags do
-		get 'weekend', on: :new
+    get 'weekend', on: :new
 		get 'beach', on: :new
 		get 'ski', on: :new
 		get 'conference', on: :new
     get 'reset', :on => :member
+    get 'duplicate', :on => :member
 	end
 
 end

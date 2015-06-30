@@ -4,7 +4,12 @@ class ItemsController < ApplicationController
 
 	def new
 		@item = Item.new
-		@bag = Bag.find(params[:bag_id])
+		@bag = Bag.find(params[:bag_id])	
+	end
+
+	def new_select
+		@item = Item.new
+		@bag = Bag.find(params[:bag_id])	
 	end
 
 	def create
@@ -45,6 +50,17 @@ class ItemsController < ApplicationController
 		respond_to do |format|
 	    format.json {render json: @item}
   	end
+	end
+
+	def shampoo
+		@bag = Bag.find(params[:bag_id])
+		@item = @bag.items.build(name: "Shampoo", quantity: "1", bag_id: @bag.id)
+		if @item.save
+			redirect_to @bag
+		else
+			flash[:danger] = "something went wrong"
+			redirect_to @bag
+		end
 	end
 
 	private 

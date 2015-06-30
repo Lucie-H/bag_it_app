@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-md-8">
+    <h1>Choose an item</h1>
+    <%= form_for [@bag, @item], url: bag_items_path do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+        <p>
+          <%= f.number_field(:quantity, in: 1..50, :value => 1) %>
+          <span id="item_select"><%= f.select :name, options_for_select(['Shampoo', 'soap', 'brush', 'toothbrush'])%></span>
+          <%= f.submit "Add", class: "btn btn-primary btn-sm" %>
+        </p>
+    <% end %>
+  </div>
+</div>

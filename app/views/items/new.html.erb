@@ -3,18 +3,11 @@
     <h1>Add an item</h1>
     <%= form_for [@bag, @item], url: bag_items_path do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
-
-      <div class="field">
-      	<%= f.label "How many?" %><br />
+      <p>
         <%= f.number_field(:quantity, in: 1..50, :value => 1) %>
-      </div>
-      
-      <div class="field">
-      	<%= f.label :name %><br />
-        <%= f.text_field :name, placeholder: "What do you want to pack?", size: 20, class: 'form-control' %>
-      </div>
-      
-      <%= f.submit "Post", class: "btn btn-primary btn-sm" %>
+        <%= f.text_field :name, placeholder: "What do you want to pack?", :size => 20, class: 'form-control' %>
+        <%= f.submit "Add", class: "btn btn-primary btn-sm" %>
+      </p>
     <% end %>
   </div>
 </div>
