@@ -20,9 +20,9 @@
 					  <% current_user.bags.each do |bag| %>
 					    <li>
 					      <%= link_to bag.name, bag %>
-					      <%= link_to "rename", edit_bag_path(bag), class: "btn btn-default btn-xs" %>
-					      <%= link_to "duplicate", duplicate_bag_path(bag), class: "btn btn-default btn-xs" %>
 					      <%= link_to "delete", bag, method: :delete, data: { confirm: "You sure?" }, class: "btn btn-default btn-xs" %>
+					      <%= link_to "duplicate", duplicate_bag_path(bag), class: "btn btn-default btn-xs" %>
+					      <%= link_to "rename", edit_bag_path(bag), class: "btn btn-default btn-xs" %>
 					    </li>
 					  <% end %>
 					</ul>
