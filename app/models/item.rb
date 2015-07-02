@@ -5,7 +5,11 @@ class Item < ActiveRecord::Base
 
   after_initialize :defaults
 
-  TEMPLATES = [ "shampoo", "soap", "brush", "toothbrush", "toothpaste", "shower gel", "perfume" ]
+  TOILETRY = [ "shampoo", "soap", "brush", "toothbrush", "toothpaste", "bodywash", "perfume" ]
+  CLOTHES = [ "socks", "underwear", "pants", "dress", "shirt", "suit", "coat", "scarf", "hat" ]
+  EQUIPMENT = [ "umbrella", "travel guide", "plane ticket", "train ticket", "hotel reservation" ]
+  GADGETS = [ "laptop", "laptop charger", "USB key", "phone charger", "camera", "camera charger", "camera battery" ]
+  ENTERTAINMENT = [ "ebook", "book", "magazine", "handheld console" ]
 
   def defaults
     self.status = false if self.status.nil?

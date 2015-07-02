@@ -32,8 +32,24 @@
 	</div>
 	<div class="col-md-4">
 		<h3>Choose items</h3>
+		<h4>Clothes</h4>
+			<% Item::CLOTHES.each do |item| %>
+				<%= link_to item, new_bag_item_path(@bag, template: item), class: "btn btn-default btn-xs" %>
+			<% end %>
 		<h4>Toiletry</h4>
-			<% Item::TEMPLATES.each do |item| %>
+			<% Item::TOILETRY.each do |item| %>
+				<%= link_to item, new_bag_item_path(@bag, template: item), class: "btn btn-default btn-xs" %>
+			<% end %>
+		<h4>Equipment</h4>
+			<% Item::EQUIPMENT.each do |item| %>
+				<%= link_to item, new_bag_item_path(@bag, template: item), class: "btn btn-default btn-xs" %>
+			<% end %>
+		<h4>Gadgets</h4>
+			<% Item::GADGETS.each do |item| %>
+				<%= link_to item, new_bag_item_path(@bag, template: item), class: "btn btn-default btn-xs" %>
+			<% end %>
+		<h4>Entertainment</h4>
+			<% Item::ENTERTAINMENT.each do |item| %>
 				<%= link_to item, new_bag_item_path(@bag, template: item), class: "btn btn-default btn-xs" %>
 			<% end %>
 	</div>
