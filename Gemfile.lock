@@ -55,6 +55,7 @@ GEM
       execjs
     coffee-script-source (1.9.1.1)
     debug_inspector (0.0.2)
+    deep_clonable (1.2.0)
     devise (3.4.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -203,6 +204,7 @@ DEPENDENCIES
   bcrypt
   bootstrap-sass
   coffee-rails (~> 4.1.0)
+  deep_clonable
   devise (~> 3.4.0)
   guard-minitest (= 2.3.1)
   jbuilder (~> 2.0)

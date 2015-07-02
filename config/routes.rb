@@ -22,6 +22,7 @@ Rails.application.routes.draw do
 		get 'beach', on: :new
 		get 'ski', on: :new
 		get 'conference', on: :new
+    get 'city', on: :new
     get 'reset', :on => :member
     get 'duplicate', :on => :member
 	end

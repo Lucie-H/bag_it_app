@@ -6,6 +6,7 @@
       <p>
         <%= f.number_field(:quantity, in: 1..50, :value => 1) %>
         <%= f.text_field :name, placeholder: "What do you want to pack?", :size => 20, class: 'form-control' %>
+        <%= f.select :category, options_for_select(['clothes', 'equipment', '2toiletry', 'entertainment', 'gadgets']), class: "form-control input-lg" %>
         <%= f.submit "Add", class: "btn btn-primary btn-sm" %>
       </p>
     <% end %>
