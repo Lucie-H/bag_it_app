@@ -3,13 +3,19 @@ class ItemsController < ApplicationController
 	respond_to :html, :js
 
 	def new
-		@item = Item.new
-		@bag = Bag.find(params[:bag_id])	
-	end
-
-	def new_select
-		@item = Item.new
-		@bag = Bag.find(params[:bag_id])	
+		if params[:template]
+      @bag = Bag.find(params[:bag_id])	
+      @item = Item.new.standard_item(params[:template], @bag)
+      if @item.save
+      	redirect_to @bag
+      else
+      	flash[:danger] = "something went wrong"
+      	redirect_to @bag
+      end
+    else
+			@item = Item.new
+			@bag = Bag.find(params[:bag_id])	
+		end
 	end
 
 	def create

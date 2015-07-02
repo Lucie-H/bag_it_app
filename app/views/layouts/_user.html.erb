@@ -5,11 +5,9 @@
 		<h4>Create custom bag</h4>
 			<%= link_to "New bag", new_bag_path, class: "btn btn-primary" %>
 		<h4>Choose a standard bag</h4>
-			<%= link_to "Weekend trip", new_bag_path(template: "weekend"), class: "btn btn-info" %>
-			<%= link_to "Beach trip", new_bag_path(template: "beach"), class: "btn btn-info" %>
-			<%= link_to "Ski trip", new_bag_path(template: "ski"), class: "btn btn-info" %>
-			<%= link_to "Conference", new_bag_path(template: "conference"), class: "btn btn-info" %>
-			<%= link_to "City", new_bag_path(template: "city"), class: "btn btn-info" %>
+			<% Bag::TEMPLATES.each do |key, value| %>
+				<%= link_to value[:name].to_s, new_bag_path(template: key), class: "btn btn-info" %>
+			<% end %>
 		</div>
 		<div class="col-md-6">
 			<div class="bags list">

@@ -5,8 +5,15 @@ class Item < ActiveRecord::Base
 
   after_initialize :defaults
 
+  TEMPLATES = [ "shampoo", "soap", "brush", "toothbrush", "toothpaste", "shower gel", "perfume" ]
+
   def defaults
     self.status = false if self.status.nil?
+  end
+
+  def standard_item(template, bag)
+  	item = bag.items.build(name: template, quantity: "1", bag_id: bag_id)
+  	return item
   end
 
 end

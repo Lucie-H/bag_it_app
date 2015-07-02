@@ -25,12 +25,16 @@
 				</ul>
 			<% end %>
 			<%= link_to "Add item", new_bag_item_path(@bag), class: "btn btn-primary" %>
-			<%= link_to "Choose item", new_select_new_bag_item_path(@bag), class: "btn btn-info" %>
 		</div>
-	</div>
-	<div class="col-md-4">
-		<p><em>Don't need this bag anymore?</em></p>
+		<h4>Don't need this bag anymore?</h4>
 		<%= link_to "Unpack all", reset_bag_path(@bag), data: { confirm: "You sure?" }, class: "btn btn-info btn-sm" %>
 		<%= link_to "Delete bag", @bag, method: :delete, data: { confirm: "You sure?" }, class: "btn btn-danger btn-sm" %>
+	</div>
+	<div class="col-md-4">
+		<h3>Choose items</h3>
+		<h4>Toiletry</h4>
+			<% Item::TEMPLATES.each do |item| %>
+				<%= link_to item, new_bag_item_path(@bag, template: item), class: "btn btn-default btn-xs" %>
+			<% end %>
 	</div>
 </div>
